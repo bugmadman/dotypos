@@ -4,9 +4,11 @@ namespace BMM\DotyposSdk\Infrastructure\DataTransformer;
 
 use BMM\DotyposSdk\Infrastructure\DTO\DTO;
 use Symfony\Component\PropertyInfo\Extractor\PhpDocExtractor;
+use Symfony\Component\PropertyInfo\Extractor\ReflectionExtractor;
 use Symfony\Component\PropertyInfo\PropertyInfoExtractor;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\ArrayDenormalizer;
+use Symfony\Component\Serializer\Normalizer\BackedEnumNormalizer;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
 
@@ -75,8 +77,12 @@ trait DeserializerTrait
 
     private function buildSerializer(): Serializer
     {
-        $extractor = new PropertyInfoExtractor([], [new PhpDocExtractor()]);
+        // PhpDocExtractor first so `@var TableDTO[]`-style item types on wrapper DTOs keep
+        // resolving; ReflectionExtractor as fallback for native-typed properties (enums)
+        // that have no docblock at all.
+        $extractor = new PropertyInfoExtractor([], [new PhpDocExtractor(), new ReflectionExtractor()]);
         $normalizers = [
+            new BackedEnumNormalizer(),
             new ObjectNormalizer(
                 null,
                 null,

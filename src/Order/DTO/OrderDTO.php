@@ -6,18 +6,6 @@ use BMM\DotyposSdk\Infrastructure\DTO\DTO;
 
 final class OrderDTO extends DTO
 {
-//    public int $_cloudId;
-//    public bool $deleted;
-//    public int $discountPercent;
-//    public bool $display;
-//    public ?string $externalId;
-//    public int $id;
-//    public string $name;
-//
-////    TODO date to DateTimeImmutable
-//    public string $versionDate;
-
-//todo check it
     public string $_branchId;
     public string $_cloudId;
     public ?int $_courseId = null;
@@ -30,6 +18,8 @@ final class OrderDTO extends DTO
     public ?int $_sourceOrderId = null;
     public ?int $_tableId = null;
     public ?string $bkp = null;
+    // TODO $canceledDate/$completed/$created/$locationDate/$updated/$versionDate below:
+    // date to DateTimeImmutable — см. пункт 5 плана (сверка схем API)
     public ?string $canceledDate = null;
     public string $completed;
     public string $created;

@@ -53,7 +53,6 @@ final class Endpoint
         );
     }
 
-//    accessToken to AutorizationEndpoint
     public function accessToken(): EndpointVO
     {
         return $this->get(EndpointName::AccessToken);
