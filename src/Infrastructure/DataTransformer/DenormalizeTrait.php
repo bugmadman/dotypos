@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace BMM\DotyposSdk\Infrastructure\DataTransformer;
 
 use Symfony\Component\Serializer\Exception\ExceptionInterface;

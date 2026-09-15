@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace BMM\DotyposSdk\Table\DTO;
 
 use BMM\DotyposSdk\Infrastructure\DTO\DTO;

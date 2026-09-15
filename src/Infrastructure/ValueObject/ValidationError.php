@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace BMM\DotyposSdk\Infrastructure\ValueObject;
 
 use Symfony\Component\Validator\ConstraintViolationInterface;

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace BMM\DotyposSdk\Webhook\DTO;
 
 use BMM\DotyposSdk\HttpMethod;

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace BMM\DotyposSdk\OrderItem;
 
 use BMM\DotyposSdk\Infrastructure\HttpClient\ValueObject\PaginationVO;

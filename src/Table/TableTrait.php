@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace BMM\DotyposSdk\Table;
 
 use BMM\DotyposSdk\Infrastructure\HttpClient\ValueObject\PaginationVO;

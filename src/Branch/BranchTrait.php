@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace BMM\DotyposSdk\Branch;
 
 use BMM\DotyposSdk\Branch\DTO\BranchesDTO;

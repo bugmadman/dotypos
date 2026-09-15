@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace BMM\DotyposSdk\Warehouse\DTO;
 
 use BMM\DotyposSdk\Infrastructure\DTO\DTO;

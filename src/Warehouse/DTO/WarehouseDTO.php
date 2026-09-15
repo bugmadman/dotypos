@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace BMM\DotyposSdk\Warehouse\DTO;
 
 final class WarehouseDTO
