@@ -583,9 +583,9 @@ response), not just from this page.
   | `id` | long | |
   | `_cloudId` | int | |
   | `_warehouseId` | long? | |
-  | `method` | enum | `POST`, `GET` — matches `WebhookVO::$method` in the code (unfinished enum migration per the plan, item 2) |
+  | `method` | enum | `POST`, `GET` — `WebhookVO::$method`/`WebhookDTO::$method` use the existing `HttpMethod` enum |
   | `url` | string | regex-validated |
-  | `payloadEntity` | enum | `STOCKLOG`, `POINTSLOG`, `PRODUCT`, `ORDERBEAN`, `RESERVATION`, `CUSTOMER` — matches `WebhookVO::$payloadEntity` in the code |
+  | `payloadEntity` | enum | `STOCKLOG`, `POINTSLOG`, `PRODUCT`, `ORDERBEAN`, `RESERVATION`, `CUSTOMER` — `WebhookVO::$payloadEntity`/`WebhookDTO::$payloadEntity` use `WebhookPayloadEntity` |
   | `payloadVersion` | enum | `V1` |
   | `versionDate` | timestamp? | |
 - Pagination/Filter/Sort: **not supported** (not explicitly mentioned in the
@@ -612,7 +612,7 @@ response), not just from this page.
   | `client_id` | application identifier |
   | `timestamp` | Unix time in seconds |
   | `signature` | HMAC-SHA256(`timestamp` as a string, key = `client_secret`), 64-character hex |
-  | `scope` | as of the scan, only `*` is supported (matches `ConnectUrlVO::$scope` — a candidate for the enum migration per the plan, item 2, but currently the only real value) |
+  | `scope` | as of the scan, only `*` is supported. `ConnectUrlVO::$scope` deliberately stays a plain string, not an enum — see plan item 2 |
   | `redirect_uri` | where to redirect after authorization |
   | `state` | optional, CSRF token |
 - Response: redirect to `redirect_uri?token={refreshToken}&cloudid={cloudId}&state={state}`.

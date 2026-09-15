@@ -16,7 +16,6 @@ final readonly class ConnectUrlVO extends ValueObject
         private string $redirectUri,
         #[Assert\NotBlank(allowNull: true)]
         private ?string $state = null,
-        //TODO scope from Enum
         private ?string $scope = '*',
     ) {
         $this->validate();

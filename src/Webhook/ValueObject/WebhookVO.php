@@ -2,20 +2,21 @@
 
 namespace BMM\DotyposSdk\Webhook\ValueObject;
 
+use BMM\DotyposSdk\HttpMethod;
+use BMM\DotyposSdk\Webhook\WebhookPayloadEntity;
+
 final readonly class WebhookVO
 {
     public function __construct(
-        //TODO from enum
-        private string $method,
+        private HttpMethod $method,
         private string $url,
-        //TODO from enum
-        private string $payloadEntity,
+        private WebhookPayloadEntity $payloadEntity,
         private ?string $payloadVersion = 'V1',
         private ?int $_warehouseId = null,
     ) {
     }
 
-    public function getMethod(): string
+    public function getMethod(): HttpMethod
     {
         return $this->method;
     }
@@ -25,7 +26,7 @@ final readonly class WebhookVO
         return $this->url;
     }
 
-    public function getPayloadEntity(): string
+    public function getPayloadEntity(): WebhookPayloadEntity
     {
         return $this->payloadEntity;
     }
