@@ -14,6 +14,9 @@ return RectorConfig::configure()
     ->withPreparedSets(
         symfonyCodeQuality: true,
     )
+    ->withComposerBased(
+        symfony: true,
+    )
     ->withRules([
         DeclareStrictTypesRector::class,
     ]);
